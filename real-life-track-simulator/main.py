@@ -46,8 +46,9 @@ def main(video_file_name=None):
         blurred = cv2.GaussianBlur(frame, (11, 11), 0)
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
         
-        blue_center = cd.detect_blue(hsv, frame)
         red_center = cd.detect_red(hsv, frame)
+        green_center = cd.detect_green(hsv, frame)
+        blue_center = cd.detect_blue(hsv, frame)
         
         # show the frame to our screen
         # TODO make showing the picture optional

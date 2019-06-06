@@ -7,19 +7,25 @@ import cv2
 
 class CircleDetector:
     # define the lower and upper boundaries in the HSV color space
-    # color values are from: https://stackoverflow.com/questions/17878254/opencv-python-cant-detect-blue-objects
-    BLUE_LOWER = np.array([100,150,0],np.uint8)
-    BLUE_UPPER = np.array([140,255,255],np.uint8)
+    # more in here: https://stackoverflow.com/questions/17878254/opencv-python-cant-detect-blue-objects
+    BLUE_LOWER = np.array([100, 150, 0],np.uint8)
+    BLUE_UPPER = np.array([140, 255, 255],np.uint8)
 
-    RED_LOWER = np.array([0,150,0],np.uint8)
-    RED_UPPER = np.array([10,255,255],np.uint8)
+    RED_LOWER = np.array([0, 150, 0],np.uint8)
+    RED_UPPER = np.array([10, 255, 255],np.uint8)
 
+    GREEN_LOWER = np.array([24, 70, 120],np.uint8)
+    GREEN_UPPER = np.array([60, 255, 255],np.uint8)
+    
+
+    def detect_red(self, hsv, frame):
+        return self._detect_color(hsv, frame, self.RED_LOWER, self.RED_UPPER, (0, 0, 255))
+
+    def detect_green(self, hsv, frame):
+        return self._detect_color(hsv, frame, self.GREEN_LOWER, self.GREEN_UPPER, (0, 255, 0))
 
     def detect_blue(self, hsv, frame):
         return self._detect_color(hsv, frame, self.BLUE_LOWER, self.BLUE_UPPER, (255, 0, 0))
-    
-    def detect_red(self, hsv, frame):
-        return self._detect_color(hsv, frame, self.RED_LOWER, self.RED_UPPER, (0, 0, 255))
 
     def _detect_color(self, hsv, frame, lower_bound, upper_bound, draw_col):
         # construct a mask for the color, then perform
