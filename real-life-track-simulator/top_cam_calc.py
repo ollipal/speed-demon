@@ -9,6 +9,7 @@ class TopCamCalc:
     CAM_H = 1.74    # camera height from the ground
     COL_H = 0.2     # color height from the ground
 
+
     def __init__(self, pic_size_x, pic_size_y):
         self.center = [float(pic_size_x)/2, float(pic_size_y)/2]
         # 0 = center, 100 = the furthest pixel from center
