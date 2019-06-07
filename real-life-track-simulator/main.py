@@ -56,16 +56,16 @@ def main(video_file_name=None):
         blurred = cv2.GaussianBlur(frame, (11, 11), 0)
         hsv = cv2.cvtColor(blurred, cv2.COLOR_BGR2HSV)
         
-        #red_center = cd.detect_red(hsv, frame)
         green_center = cd.detect_green(hsv, frame)
         blue_center = cd.detect_blue(hsv, frame)
 
-        #mw.plot_red(red_center)
-        mw.plot_green(green_center)
-        mw.plot_blue(blue_center)
+        green_coords = mw.plot_green(green_center)
+        blue_coords = mw.plot_blue(blue_center)
+
+        mw.plot_car_cam(blue_coords, green_coords)
         
         # show the frame to our screen
-        # TODO make showing the picture optional
+        # TODO make showing the image optional
         cv2.imshow("Frame", frame)
         
         # if the 'q' key is pressed, stop the loop

@@ -1,5 +1,5 @@
 # Heavily inspired by: https://www.pyimagesearch.com/2015/09/14/ball-tracking-with-opencv/
-# Detects blue and red circles, draws them to the frame and returns their center coordinates
+# Detects red, green and blue circles, draws them to the frame and returns their center coordinates
 import imutils
 import numpy as np
 import cv2

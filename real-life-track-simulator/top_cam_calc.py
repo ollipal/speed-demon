@@ -6,13 +6,12 @@ import numpy as np
 # The coordinates are in relation to the origin, that is located CAM_H meters below the camera
 
 class TopCamCalc:
-    CAM_H = 1.63            # camera height from the ground
-    COL_H = 0.08            # color height from the ground
-    FRAME_WIDTH_2M = 2.4    # frame width in meters at two meters from the camera
+    CAM_H = 1.63        # camera height from the ground
+    COL_H = 0.08        # color height from the ground
+    FRAME_W_2M = 2.4    # frame width in meters at two meters from the camera
 
 
     def __init__(self, pic_size_x, pic_size_y):
-        print("X size:", pic_size_x, "Y size:", pic_size_y)
         self.pic_size_x = pic_size_x
         self.pic_size_y = pic_size_y
         self.center = [float(pic_size_x)/2.0, float(pic_size_y)/2.0]
@@ -55,6 +54,6 @@ class TopCamCalc:
 
     # TODO make more complicated and accurate offset calculations when the actual top camera is available
     def _offset_percents_to_offset_meters_at_2m(self, xy):
-        x = (xy[0]/100) * (self.FRAME_WIDTH_2M/2.0)
-        y = (xy[1]/100) * (self.FRAME_WIDTH_2M/2.0)
+        x = (xy[0]/100) * (self.FRAME_W_2M/2.0)
+        y = (xy[1]/100) * (self.FRAME_W_2M/2.0)
         return x, y
