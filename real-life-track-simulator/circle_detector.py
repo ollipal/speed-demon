@@ -8,14 +8,14 @@ import cv2
 class CircleDetector:
     # define the lower and upper boundaries in the HSV color space
     # more in here: https://stackoverflow.com/questions/17878254/opencv-python-cant-detect-blue-objects
-    BLUE_LOWER = np.array([100, 150, 0],np.uint8)
-    BLUE_UPPER = np.array([140, 255, 255],np.uint8)
+    BLUE_LOWER = np.array([100, 150, 0], np.uint8)
+    BLUE_UPPER = np.array([140, 255, 255], np.uint8)
 
-    RED_LOWER = np.array([0, 150, 0],np.uint8)
-    RED_UPPER = np.array([10, 255, 255],np.uint8)
+    RED_LOWER = np.array([0, 150, 0], np.uint8)
+    RED_UPPER = np.array([10, 255, 255], np.uint8)
 
-    GREEN_LOWER = np.array([24, 70, 120],np.uint8)
-    GREEN_UPPER = np.array([60, 255, 255],np.uint8)
+    GREEN_LOWER = np.array([24, 70, 120], np.uint8)
+    GREEN_UPPER = np.array([60, 255, 255], np.uint8)
     
 
     def detect_red(self, hsv, frame):
