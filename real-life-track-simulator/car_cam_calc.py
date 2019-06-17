@@ -35,30 +35,30 @@ class CarCamCalc:
         frame_up_middle_vec = 0.5 * self.FRAME_H_2M * cam_up_unit_vec
 
         # calculate vectors towards frame corner points
-        cam_tl_vec = frame_middle_vec + frame_left_middle_vec + frame_up_middle_vec
-        cam_bl_vec = frame_middle_vec + frame_left_middle_vec - frame_up_middle_vec
-        cam_br_vec = frame_middle_vec - frame_left_middle_vec - frame_up_middle_vec
-        cam_tr_vec = frame_middle_vec - frame_left_middle_vec + frame_up_middle_vec
+        frame_tl_vec = frame_middle_vec + frame_left_middle_vec + frame_up_middle_vec
+        frame_bl_vec = frame_middle_vec + frame_left_middle_vec - frame_up_middle_vec
+        frame_br_vec = frame_middle_vec - frame_left_middle_vec - frame_up_middle_vec
+        frame_tr_vec = frame_middle_vec - frame_left_middle_vec + frame_up_middle_vec
 
-        # get the cornerpoints on the ground
-        cam_tl = line_plane_collision(self.ground_normal, self.ground_point, cam_tl_vec, cam_coords)
-        cam_bl = line_plane_collision(self.ground_normal, self.ground_point, cam_bl_vec, cam_coords)
-        cam_br = line_plane_collision(self.ground_normal, self.ground_point, cam_br_vec, cam_coords)
-        cam_tr = line_plane_collision(self.ground_normal, self.ground_point, cam_tr_vec, cam_coords)
+        # get the frame cornerpoints on the ground
+        frame_tl = line_plane_collision(self.ground_normal, self.ground_point, frame_tl_vec, cam_coords)
+        frame_bl = line_plane_collision(self.ground_normal, self.ground_point, frame_bl_vec, cam_coords)
+        frame_br = line_plane_collision(self.ground_normal, self.ground_point, frame_br_vec, cam_coords)
+        frame_tr = line_plane_collision(self.ground_normal, self.ground_point, frame_tr_vec, cam_coords)
 
         # get points in order so that all of the lines will be drawn. 
         points = np.array([
             cam_coords,
-            cam_tl,
-            cam_bl,
+            frame_tl,
+            frame_bl,
             cam_coords,
-            cam_tl,
-            cam_tr,
+            frame_tl,
+            frame_tr,
             cam_coords,
-            cam_br,
-            cam_tr,
-            cam_br,
-            cam_bl
+            frame_br,
+            frame_tr,
+            frame_br,
+            frame_bl
         ])
 
         # separate xs, ys and zs for returning and plotting
