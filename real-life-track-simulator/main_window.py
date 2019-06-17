@@ -89,7 +89,7 @@ class MainWindow:
             self.blues = pts
 
         plt.draw()
-        #plt.pause(1) very useful when debugging
+        #plt.pause(0.5) #very useful when debugging
 
 
     def plot_car_cam(self, left_coords, right_coords):
